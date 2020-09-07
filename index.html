@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ROCK PAPER SCISSORS</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      // computer's move (tested)
+
+      const promptInput = prompt("let's play!");
+
+      const myarray = ["Rock", "Paper", "Scissors"];
+      function computerPlay() {
+        return myarray[Math.floor(Math.random() * myarray.length)];
+      }
+      //single round (tested) & score
+      let count = 0;
+      const computerSelection = computerPlay();
+      const playerSelection = promptInput;
+
+      function playRound(playerSelection, computerSelection) {
+        if (
+          promptInput != "Rock" &&
+          promptInput != "Paper" &&
+          promptInput != "Scissors"
+        ) {
+          return "Please pick from Rock, Paper or Scissors.";
+        } else if (playerSelection === computerSelection) {
+          return "Dual, try again!";
+        } else if (
+          (playerSelection === "Rock" && computerSelection === "Scissors") ||
+          (playerSelection === "Paper" && computerSelection === "Rock") ||
+          (playerSelection === "Scissors" && computerSelection === "Paper")
+        ) {
+          return (
+            "You Win! " + playerSelection + " beats " + computerSelection + "."
+          );
+        } else {
+          return (
+            "You Lose! " + computerSelection + " beats " + playerSelection + "."
+          );
+        }
+      }
+      ///print result on the page
+      var x = playRound(playerSelection, computerSelection);
+      document.getElementById("demo").innerHTML = x;
+
+      //repeat the game 5 times, keep the score and  report the winner
+
+      //print final result
+    </script>
+  </body>
+</html>
